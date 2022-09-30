@@ -31,9 +31,10 @@ namespace ArvTest
 
         public int FlightHeight{ get { return this._flightHeight; } }
 
+
         public override void UseSuperPower()
         {
-
+            Console.WriteLine("bla");
         }
     }
 }

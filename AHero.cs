@@ -5,16 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ArvTest
-{
-    abstract class/*interface*/ /*I*/AHero
+{   
+    public abstract class AHero
     {
+        //private string _heroIdentity; //new 
         private string _name;
         private int _lifeLengthYears;
+        private bool healed;
 
         public AHero(string name, int lifeLengthYears)
         {
-            _name = name;
-            _lifeLengthYears = lifeLengthYears;
+            this._name = name;
+            //this._heroIdentity = name;   //new
+            this._lifeLengthYears = lifeLengthYears;
+            this.healed = false;
         }
 
         public string Name { get { return this._name; } /*set;*/ }
@@ -22,5 +26,11 @@ namespace ArvTest
         public int LifeLengthYears { get { return this._lifeLengthYears; } set { this._lifeLengthYears = value; } }
 
         public abstract void UseSuperPower();
+
+        public virtual bool HealMe()
+        {
+            this.healed = true;
+            return this.healed;
+        }
     }
 }

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ArvTest
 {
+    /// <summary>
+    /// IHero interface replaced by AHero abstract class
+    /// </summary>
     interface IHero
     {
         //private string _name;

@@ -21,12 +21,12 @@ namespace ArvTest
             LifeLengthYears = _lifeLengthYears;
         }
 
-        public string Name  { get { return this._name; } set { this._name = value; } }
+        public  string Name  { get { return this._name; } set { this._name = value; } }
 
         public int LifeLengthYears { get { return this._lifeLengthYears; } set { this._lifeLengthYears = value; } }
 
         public int FlightHeight{ get { return this._flightHeight; } }
-                
+
         public void UseSuperPower()
         {
             Console.WriteLine("Flying");
