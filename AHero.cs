@@ -8,13 +8,16 @@ namespace ArvTest
 {   
     public abstract class AHero
     {
+        public delegate void AlertDelegate(string message);
         //private string _heroIdentity; //new 
+        private AlertDelegate alertDelegate;
         private string _name;
         private int _lifeLengthYears;
-        private bool healed;
+        public bool healed;
 
-        public AHero(string name, int lifeLengthYears)
+        public AHero(string name, int lifeLengthYears, AlertDelegate alert)
         {
+            this.alertDelegate += alert;
             this._name = name;
             //this._heroIdentity = name;   //new
             this._lifeLengthYears = lifeLengthYears;
@@ -31,6 +34,11 @@ namespace ArvTest
         {
             this.healed = true;
             return this.healed;
+        }
+
+        public virtual void AlertMessage(string message)
+        {
+            alertDelegate(message);
         }
     }
 }

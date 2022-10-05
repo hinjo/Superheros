@@ -27,6 +27,8 @@ namespace ArvTest
                 open = value;
             }
         }
+
+
        
     }
 }

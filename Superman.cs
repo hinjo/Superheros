@@ -12,7 +12,7 @@ namespace ArvTest
         //private int lifeLengthYears;
         private int _flightHeight = 3000;
 
-        public Superman(string name, int lifeLengthYears, int flightHeight) : base(name, lifeLengthYears)
+        public Superman(string name, int lifeLengthYears, int flightHeight, AlertDelegate alertDelegate) : base(name, lifeLengthYears, alertDelegate)
         {
             _flightHeight = flightHeight;
             //Name = name;

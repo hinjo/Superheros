@@ -18,8 +18,8 @@ namespace ArvTest
             //SupermanI supermanI = new SupermanI("Clark Kent", 3000, 1500);
             //Console.WriteLine("Hello " + supermanI.Name + ", " + supermanI.FlightHeight + ", " + supermanI.LifeLengthYears);
 
-            Superman superman = new Superman("Clark Kent", 3000, 1500);
-            Spiderman spiderman = new Spiderman("Peter Parker", 2000, 30);
+            Superman superman = new Superman("Clark Kent", 3000, 1500, new AHero.AlertDelegate(Alert));
+            Spiderman spiderman = new Spiderman("Peter Parker", 2000, 30, new AHero.AlertDelegate(Alert));
 
             Console.WriteLine("Hello " + superman.Name + ", " + superman.FlightHeight + ", " + superman.LifeLengthYears);
 
@@ -69,7 +69,10 @@ namespace ArvTest
                     hospital.HealSuperHero(ref heroInNeed); 
                     heroes[i] = heroInNeed;
                 }
-            }            
+            }
+
+            int superKey;
+            var test = int.TryParse("12", out superKey);
         }
 
         //static HealSuperHero method replaced by the extension method below
@@ -77,9 +80,14 @@ namespace ArvTest
         //{
         //    hero.HealMe();
         //}
-    }
 
-    
+        public static void Alert(string message)
+        {
+            Console.WriteLine(message);
+        }
+
+
+    }
 }
 
 namespace ExtensionMethods
@@ -94,9 +102,12 @@ namespace ExtensionMethods
             //We destroy current Spiderman and create a new one
             if(hero is Spiderman)
             {
-                hero = null;
-                hero = new Spiderman("Peter Parker 2", 2000, 30);
+                //hero = null;
+                //hero = new Spiderman("Peter Parker 2", 2000, 30 , new AHero.AlertDelegate(Alert));
+                // hero.HealMe();
+                hero.healed = true;
             }
+            
         }
     }
 }
