@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using ExtensionMethods;
 using System.Runtime.CompilerServices;
 using System.Reflection.Metadata;
+//Alt 1 using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace ArvTest
 {
@@ -71,8 +73,17 @@ namespace ArvTest
                 }
             }
 
-            int superKey;
-            var test = int.TryParse("12", out superKey);
+            //Alt 1 string supermanJsonString = JsonSerializer.Serialize(superman);
+            //Alt 1 string spidermanJsonString = JsonSerializer.Serialize(spiderman);
+
+            string supermanJsonString = JsonConvert.SerializeObject(superman);
+            string spidermanJsonString = JsonConvert.SerializeObject(spiderman);
+
+            Spiderman dobberGangerSpiderman = JsonConvert.DeserializeObject<Spiderman>(spidermanJsonString);
+
+
+            Console.WriteLine(supermanJsonString);
+            Console.WriteLine(spidermanJsonString);
         }
 
         //static HealSuperHero method replaced by the extension method below

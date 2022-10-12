@@ -38,7 +38,10 @@ namespace ArvTest
 
         public virtual void AlertMessage(string message)
         {
-            alertDelegate(message);
+            if (alertDelegate != null)
+            {
+                alertDelegate(message);
+            }
         }
     }
 }
